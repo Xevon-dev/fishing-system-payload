@@ -1,0 +1,32 @@
+import type { CollectionConfig } from 'payload'
+import { Hero } from '../blocks/Hero'
+
+export const Pages: CollectionConfig = {
+  slug: 'pages',
+  admin: {
+    useAsTitle: 'title',
+  },
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      label: 'Назва сторінки',
+      required: true,
+    },
+    {
+      name: 'path',
+      type: 'text',
+      label: 'Шлях сторінки',
+      required: true,
+      unique: true,
+      defaultValue: '/',
+    },
+    {
+      name: 'blocks',
+      type: 'blocks',
+      label: 'Блоки сторінки',
+      blocks: [Hero],
+      required: true,
+    },
+  ],
+}
