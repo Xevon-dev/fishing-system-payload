@@ -1,6 +1,7 @@
 import { hero } from './blocks/hero/hero'
+import { features } from './blocks/features/features'
 
-const renderers = { hero }
+const renderers = { hero, features }
 
 export function renderBlocks(blocks = []) {
   return blocks

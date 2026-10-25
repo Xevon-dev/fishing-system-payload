@@ -294,3 +294,30 @@ code {
     border-right-color: var(--border);
   }
 }
+
+:root {
+  color-scheme: light;
+  --text: #52645c;
+  --text-h: #17352c;
+  --bg: #f7f9f7;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: #17352c;
+  background: #f7f9f7;
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+#app {
+  width: min(1200px, calc(100% - 32px));
+  max-width: none;
+  min-height: 100vh;
+  margin: 0 auto;
+  border: 0;
+  text-align: left;
+  display: block;
+}

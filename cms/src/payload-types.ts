@@ -172,24 +172,41 @@ export interface Page {
   id: number;
   title: string;
   path: string;
-  blocks: {
-    anchor?: string | null;
-    badge?: string | null;
-    title: string;
-    subtitle?: string | null;
-    image?: (number | null) | Media;
-    buttons?:
-      | {
-          text: string;
-          link: string;
-          variant?: ('primary' | 'secondary') | null;
-          id?: string | null;
-        }[]
-      | null;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'hero';
-  }[];
+  blocks: (
+    | {
+        anchor?: string | null;
+        badge?: string | null;
+        title: string;
+        subtitle?: string | null;
+        image?: (number | null) | Media;
+        buttons?:
+          | {
+              text: string;
+              link: string;
+              variant?: ('primary' | 'secondary') | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }
+    | {
+        anchor?: string | null;
+        title: string;
+        subtitle?: string | null;
+        items?:
+          | {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'features';
+      }
+  )[];
   updatedAt: string;
   createdAt: string;
 }
@@ -336,6 +353,22 @@ export interface PagesSelect<T extends boolean = true> {
                     text?: T;
                     link?: T;
                     variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
                     id?: T;
                   };
               id?: T;
