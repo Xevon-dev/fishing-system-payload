@@ -21,6 +21,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages],
+  cors: ['http://localhost:5173'],
   endpoints: [pageEndpoint],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

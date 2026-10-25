@@ -1,6 +1,7 @@
 import './hero.css'
 
 export function hero({ anchor = 'top', badge, title, subtitle, image, buttons = [] }) {
+  const apiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/$/, '')
   const buttonMarkup = buttons
     .map(
       ({ text, link, variant = 'primary' }) =>
@@ -8,8 +9,9 @@ export function hero({ anchor = 'top', badge, title, subtitle, image, buttons = 
     )
     .join('')
 
-  const imageMarkup = image?.src
-    ? `<img class="hero__image" src="${image.src}" alt="${image.alt || ''}">`
+  const imageUrl = image?.src ? new URL(image.src, `${apiUrl}/`).href : ''
+  const imageMarkup = imageUrl
+    ? `<img class="hero__image" src="${imageUrl}" alt="${image.alt || ''}">`
     : ''
 
   return `
