@@ -15,7 +15,10 @@ async function start() {
       getPage(window.location.pathname),
     ])
 
-    document.title = `${page.title} — ${settings.siteName}`
+    document.title =
+      page.title && page.title !== settings.siteName
+        ? `${page.title} — ${settings.siteName}`
+        : settings.siteName
     app.innerHTML = `
       ${header(settings)}
       <main>${renderBlocks(page.blocks)}</main>
