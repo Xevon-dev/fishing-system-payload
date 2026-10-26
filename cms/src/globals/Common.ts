@@ -15,7 +15,7 @@ export const Common: GlobalConfig = {
       name: 'menu',
       type: 'array',
       label: 'Пункти меню',
-      maxRows: 4,
+      maxRows: 5,
       fields: [
         {
           name: 'label',

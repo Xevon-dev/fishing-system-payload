@@ -22,7 +22,7 @@ async function start() {
     app.innerHTML = `
       ${header(settings)}
       <main>${renderBlocks(page.blocks)}</main>
-      ${footer(settings.footer)}
+      ${footer(settings, page.blocks)}
     `
   } catch (error) {
     app.textContent = `Не вдалося завантажити сторінку: ${error.message}`
