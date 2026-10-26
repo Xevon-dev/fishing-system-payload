@@ -1,4 +1,5 @@
 import type { Endpoint, PayloadRequest } from 'payload'
+import type { CommonResponse, PageBlockData, PageResponse } from './types/api'
 
 function cleanBlock(block: Record<string, unknown>) {
   const { id, blockName, blockType, image, ...fields } = block
@@ -18,11 +19,13 @@ export const commonEndpoint: Endpoint = {
   handler: async (req: PayloadRequest) => {
     const common = await req.payload.findGlobal({ slug: 'common' })
 
-    return Response.json({
+    const response: CommonResponse = {
       siteName: common.siteName,
       menu: (common.menu ?? []).map(({ label, link }) => ({ label, link })),
       footer: { text: common.footerText ?? '' },
-    })
+    }
+
+    return Response.json(response)
   },
 }
 
@@ -45,12 +48,14 @@ export const pageEndpoint: Endpoint = {
       return Response.json({ error: 'Сторінку не знайдено' }, { status: 404 })
     }
 
-    return Response.json({
+    const response: PageResponse = {
       path: page.path,
       title: page.title,
       blocks: (page.blocks ?? []).map((block) =>
         cleanBlock(block as unknown as Record<string, unknown>),
-      ),
-    })
+      ) as unknown as PageBlockData[],
+    }
+
+    return Response.json(response)
   },
 }
