@@ -56,10 +56,21 @@ export type CTABlockData = {
   email: string
 }
 
+export type SpotlightBlockData = {
+  type: 'spotlight'
+  anchor?: string | null
+  tag?: string | null
+  title: string
+  description: string
+  image: MediaData
+  imageSide?: 'left' | 'right' | null
+}
+
 export type PageBlockData =
   | HeroBlockData
   | FeaturesBlockData
   | HowItWorksBlockData
+  | SpotlightBlockData
   | CTABlockData
 
 export type PageResponse = {

@@ -3,6 +3,8 @@ import { Hero } from '../blocks/Hero'
 import { Features } from '../blocks/Features'
 import { HowItWorks } from '../blocks/HowItWorks'
 import { CTA } from '../blocks/CTA'
+import { Faq } from '../blocks/Faq'
+import { Spotlight } from '../blocks/Spotlight'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -28,7 +30,7 @@ export const Pages: CollectionConfig = {
       name: 'blocks',
       type: 'blocks',
       label: 'Блоки сторінки',
-      blocks: [Hero, Features, HowItWorks, CTA],
+      blocks: [Hero, Features, HowItWorks, Spotlight, Faq, CTA],
       required: true,
     },
   ],

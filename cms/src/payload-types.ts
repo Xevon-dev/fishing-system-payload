@@ -227,6 +227,31 @@ export interface Page {
       }
     | {
         anchor?: string | null;
+        tag?: string | null;
+        title: string;
+        description: string;
+        image: number | Media;
+        imageSide?: ('right' | 'left') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'spotlight';
+      }
+    | {
+        anchor?: string | null;
+        title: string;
+        items?:
+          | {
+              question: string;
+              answer: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'faq';
+      }
+    | {
+        anchor?: string | null;
         title: string;
         subtitle?: string | null;
         buttonText: string;
@@ -414,6 +439,33 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     title?: T;
                     description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              anchor?: T;
+              tag?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              imageSide?: T;
+              id?: T;
+              blockName?: T;
+            };
+        faq?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              items?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
                     id?: T;
                   };
               id?: T;
