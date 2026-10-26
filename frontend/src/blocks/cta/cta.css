@@ -1,0 +1,36 @@
+.cta {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-block: 24px 64px;
+  padding: clamp(32px, 6vw, 64px);
+  border-radius: 24px;
+  color: #fff;
+  background: #17352c;
+  text-align: center;
+}
+
+.cta__title {
+  max-width: 20ch;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.cta__subtitle {
+  max-width: 55ch;
+  margin: 0;
+  color: #e1ece5;
+}
+
+.cta__button {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  color: #17352c;
+  background: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}

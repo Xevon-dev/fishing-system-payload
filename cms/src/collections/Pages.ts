@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { Hero } from '../blocks/Hero'
 import { Features } from '../blocks/Features'
 import { HowItWorks } from '../blocks/HowItWorks'
+import { CTA } from '../blocks/CTA'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -27,7 +28,7 @@ export const Pages: CollectionConfig = {
       name: 'blocks',
       type: 'blocks',
       label: 'Блоки сторінки',
-      blocks: [Hero, Features, HowItWorks],
+      blocks: [Hero, Features, HowItWorks, CTA],
       required: true,
     },
   ],

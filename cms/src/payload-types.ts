@@ -221,6 +221,16 @@ export interface Page {
         blockName?: string | null;
         blockType: 'howItWorks';
       }
+    | {
+        anchor?: string | null;
+        title: string;
+        subtitle?: string | null;
+        buttonText: string;
+        email: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cta';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -402,6 +412,17 @@ export interface PagesSelect<T extends boolean = true> {
                     description?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        cta?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              subtitle?: T;
+              buttonText?: T;
+              email?: T;
               id?: T;
               blockName?: T;
             };
