@@ -206,6 +206,21 @@ export interface Page {
         blockName?: string | null;
         blockType: 'features';
       }
+    | {
+        anchor?: string | null;
+        title: string;
+        subtitle?: string | null;
+        steps?:
+          | {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'howItWorks';
+      }
   )[];
   updatedAt: string;
   createdAt: string;
@@ -365,6 +380,22 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               subtitle?: T;
               items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        howItWorks?:
+          | T
+          | {
+              anchor?: T;
+              title?: T;
+              subtitle?: T;
+              steps?:
                 | T
                 | {
                     title?: T;
