@@ -8,7 +8,8 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
-import { pageEndpoint } from './endpoints'
+import { commonEndpoint, pageEndpoint } from './endpoints'
+import { Common } from './globals/Common'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +23,8 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages],
   cors: ['http://localhost:5173'],
-  endpoints: [pageEndpoint],
+  endpoints: [commonEndpoint, pageEndpoint],
+  globals: [Common],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

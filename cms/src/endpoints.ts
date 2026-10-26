@@ -12,6 +12,20 @@ function cleanBlock(block: Record<string, unknown>) {
   return clean
 }
 
+export const commonEndpoint: Endpoint = {
+  path: '/common',
+  method: 'get',
+  handler: async (req: PayloadRequest) => {
+    const common = await req.payload.findGlobal({ slug: 'common' })
+
+    return Response.json({
+      siteName: common.siteName,
+      menu: (common.menu ?? []).map(({ label, link }) => ({ label, link })),
+      footer: { text: common.footerText ?? '' },
+    })
+  },
+}
+
 export const pageEndpoint: Endpoint = {
   path: '/page',
   method: 'get',

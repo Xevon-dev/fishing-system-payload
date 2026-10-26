@@ -89,8 +89,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    common: Common;
+  };
+  globalsSelect: {
+    common: CommonSelect<false> | CommonSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -469,6 +473,42 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "common".
+ */
+export interface Common {
+  id: number;
+  siteName: string;
+  menu?:
+    | {
+        label: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  footerText?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "common_select".
+ */
+export interface CommonSelect<T extends boolean = true> {
+  siteName?: T;
+  menu?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        id?: T;
+      };
+  footerText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

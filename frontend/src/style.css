@@ -321,3 +321,46 @@ body {
   text-align: left;
   display: block;
 }
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  padding-block: 24px;
+}
+
+.site-header__brand {
+  color: #17352c;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-header__link {
+  color: #52645c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-header__link:hover {
+  color: #326b50;
+}
+
+.site-footer {
+  padding-block: 24px;
+  border-top: 1px solid #dce8e1;
+  color: #52645c;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
