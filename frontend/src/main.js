@@ -1,4 +1,4 @@
-import './style.css'
+import './styles/base.css'
 import { getCommon, getPage } from './api.js'
 import { renderBlocks } from './render.js'
 import { header } from './layout/header.js'

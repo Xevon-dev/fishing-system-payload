@@ -5,9 +5,12 @@
   gap: clamp(24px, 5vw, 64px);
   min-height: 70vh;
   padding: clamp(24px, 6vw, 72px);
-  color: #17352c;
-  background: #edf4f0;
-  border-radius: 28px;
+  color: #20294f;
+  background: linear-gradient(130deg, #fff0d5 0%, #fff9ef 58%, #f5e5c4 100%);
+  border: 1px solid rgba(234, 223, 207, 0.8);
+  border-radius: 30px;
+  box-shadow: 0 24px 70px rgba(32, 41, 79, 0.1);
+  overflow: hidden;
 }
 
 .hero__content {
@@ -17,13 +20,18 @@
 }
 
 .hero__badge {
-  color: #326b50;
+  padding: 7px 14px;
+  border: 1px solid rgba(229, 167, 45, 0.28);
+  border-radius: 999px;
+  color: #875d12;
+  background: rgba(255, 253, 248, 0.78);
   font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .hero__title {
   margin: 0;
-  color: #17352c;
+  color: #20294f;
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 1.05;
 }
@@ -31,7 +39,7 @@
 .hero__subtitle {
   max-width: 48ch;
   margin: 0;
-  color: #52645c;
+  color: #636b7b;
   font-size: 1.15rem;
   line-height: 1.6;
 }
@@ -48,22 +56,43 @@
   max-height: 500px;
   object-fit: cover;
   border-radius: 24px;
+  box-shadow: 0 20px 44px rgba(32, 41, 79, 0.18);
+  transition: transform 350ms ease, box-shadow 350ms ease;
+}
+
+.hero__image:hover {
+  transform: scale(1.025);
+  box-shadow: 0 26px 54px rgba(32, 41, 79, 0.24);
 }
 
 .btn {
   display: inline-block;
   padding: 13px 22px;
   border-radius: 999px;
-  color: white;
-  background: #326b50;
+  color: #20294f;
+  background: #e5a72d;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 8px 20px rgba(201, 138, 25, 0.2);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  background: #f0bd54;
+  box-shadow: 0 12px 26px rgba(201, 138, 25, 0.28);
+  transform: translateY(-2px);
 }
 
 .btn--secondary {
-  color: #326b50;
+  color: #20294f;
   background: transparent;
-  border: 1px solid #326b50;
+  border: 1px solid rgba(32, 41, 79, 0.28);
+  box-shadow: none;
+}
+
+.btn--secondary:hover {
+  color: #20294f;
+  background: rgba(255, 253, 248, 0.85);
 }
 
 @media (max-width: 700px) {

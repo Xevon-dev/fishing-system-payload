@@ -1,5 +1,14 @@
 .how-it-works {
-  padding-block: clamp(56px, 9vw, 112px);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-block: 24px;
+  padding: clamp(32px, 5vw, 64px) clamp(18px, 3vw, 36px);
+  border: 1px solid rgba(229, 167, 45, 0.16);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(229, 167, 45, 0.12), transparent 30%),
+    linear-gradient(135deg, #fffaf0 0%, #fff5e2 55%, #fffdf8 100%);
 }
 
 .how-it-works__header {
@@ -10,14 +19,14 @@
 
 .how-it-works__title {
   margin: 0 0 12px;
-  color: #17352c;
+  color: #20294f;
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.1;
 }
 
 .how-it-works__subtitle {
   margin: 0;
-  color: #52645c;
+  color: #636b7b;
   font-size: 1.1rem;
 }
 
@@ -28,26 +37,75 @@
 }
 
 .how-step {
+  position: relative;
+  overflow: hidden;
   padding: 28px;
-  border-left: 3px solid #326b50;
+  border: 1px solid #eadfcf;
+  border-left: 4px solid #e5a72d;
   border-radius: 0 16px 16px 0;
-  background: #edf4f0;
+  background: linear-gradient(145deg, #fffdf8 0%, #fff8eb 100%);
+  box-shadow: 0 10px 28px rgba(32, 41, 79, 0.045);
+  animation: step-enter 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  transition:
+    transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.how-step::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.6) 48%, transparent 75%);
+  content: '';
+  pointer-events: none;
+  transform: translateX(-120%);
+  transition: transform 650ms ease;
+}
+
+.how-step:hover::after {
+  transform: translateX(120%);
+}
+
+.how-step:hover {
+  transform: translateY(-7px) scale(1.015);
+  border-color: rgba(229, 167, 45, 0.65);
+  box-shadow: 0 18px 38px rgba(32, 41, 79, 0.11);
+}
+
+.how-step:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.how-step:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+@keyframes step-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .how-step__number {
-  color: #326b50;
+  color: #b47b12;
   font-weight: 700;
 }
 
 .how-step__title {
   margin: 16px 0 8px;
-  color: #17352c;
+  color: #20294f;
   font-size: 1.25rem;
 }
 
 .how-step__description {
   margin: 0;
-  color: #52645c;
+  color: #636b7b;
   line-height: 1.6;
 }
 

@@ -10,14 +10,14 @@
 
 .features__title {
   margin: 0 0 12px;
-  color: #17352c;
+  color: #20294f;
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.1;
 }
 
 .features__subtitle {
   margin: 0;
-  color: #52645c;
+  color: #636b7b;
   font-size: 1.1rem;
 }
 
@@ -29,26 +29,34 @@
 
 .feature-card {
   padding: 28px;
-  border: 1px solid #dce8e1;
+  border: 1px solid #eadfcf;
   border-radius: 20px;
-  background: #fff;
+  background: #fffdf8;
+  box-shadow: 0 10px 30px rgba(32, 41, 79, 0.045);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 167, 45, 0.65);
+  box-shadow: 0 20px 42px rgba(32, 41, 79, 0.12);
 }
 
 .feature-card__number {
-  color: #326b50;
+  color: #b47b12;
   font-size: 0.9rem;
   font-weight: 700;
 }
 
 .feature-card__title {
   margin: 18px 0 8px;
-  color: #17352c;
+  color: #20294f;
   font-size: 1.3rem;
 }
 
 .feature-card__description {
   margin: 0;
-  color: #52645c;
+  color: #636b7b;
   line-height: 1.6;
 }
 
