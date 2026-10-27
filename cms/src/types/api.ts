@@ -66,11 +66,24 @@ export type SpotlightBlockData = {
   imageSide?: 'left' | 'right' | null
 }
 
+export type FaqItemData = {
+  question: string
+  answer: string
+}
+
+export type FaqBlockData = {
+  type: 'faq'
+  anchor?: string | null
+  title: string
+  items?: FaqItemData[] | null
+}
+
 export type PageBlockData =
   | HeroBlockData
   | FeaturesBlockData
   | HowItWorksBlockData
   | SpotlightBlockData
+  | FaqBlockData
   | CTABlockData
 
 export type PageResponse = {
