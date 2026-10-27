@@ -22,7 +22,9 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages],
-  cors: ['http://localhost:5173'],
+  cors: [process.env.FRONTEND_URL, 'http://localhost:5173'].filter(
+    (origin): origin is string => Boolean(origin),
+  ),
   endpoints: [commonEndpoint, pageEndpoint],
   globals: [Common],
   editor: lexicalEditor(),
